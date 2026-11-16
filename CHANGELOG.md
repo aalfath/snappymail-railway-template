@@ -2,7 +2,7 @@
 
 ## 3.0.1.2-r1 (2026-11-16)
 
-- README: Deploy on Railway button for the published template (code ). No change to the running app.
+- README: Deploy on Railway button for the published template (code `snappymail`). No change to the running app.
 
 ## 3.0.1.2 (2026-11-16)
 
