@@ -16,6 +16,16 @@ if [ "$PORT" != "8888" ]; then
     sed -i "s/127.0.0.1 8888/127.0.0.1 $PORT/; s#127.0.0.1:8888#127.0.0.1:$PORT#g" /entrypoint.sh
 fi
 
+# The upstream image disables the stock php-fpm pools by renaming them in a layer.
+# On Railway those files can reappear and the stock "www" pool then takes port 9000
+# ("unable to set listen address as it's already used in another pool 'www'").
+for f in www.conf docker.conf zz-docker.conf; do
+    if [ -f "/usr/local/etc/php-fpm.d/$f" ]; then
+        echo "[railway] removing stock php-fpm pool file $f"
+        rm -f "/usr/local/etc/php-fpm.d/$f"
+    fi
+done
+
 # Railway volumes mount owned by root.
 mkdir -p "$DATA"
 chown -R www-data:www-data "$DATA"
