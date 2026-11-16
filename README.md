@@ -1,3 +1,5 @@
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/snappymail?utm_medium=integration&utm_source=button&utm_campaign=snappymail)
+
 # SnappyMail on Railway
 
 One-click Railway template for [SnappyMail](https://snappymail.eu), a fast, open-source webmail client for your existing IMAP/SMTP mail server.
